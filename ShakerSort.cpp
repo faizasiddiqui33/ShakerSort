@@ -234,7 +234,19 @@ int main()
 		///assigning value of every element to the empty 
 		copyMyArray[i] = myArray[i];
 	}
+	///for a well-formatted console ouput
+	cout << "\n---------------------------------------------------------------------------------------------------\n";
+	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Ascending Order" << endl;
+	
+	///call the function for sorting array in Ascending Order
+	ShakerSortAscending(myArray, noOfElements);
 
+	///Print sorted Array in Ascending Order
+	cout << "\n\tYour Sorted Array is: \n ";
+
+	///for displaying all the array elements to the user 
+	for (i = 0; i < noOfElements; i++)
+		cout << " | " << myArray[i];
 
     return 0;
 }
