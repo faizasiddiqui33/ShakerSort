@@ -13,11 +13,15 @@
 		- It prints the time taken to perform both sortings.
 *****************************************************************************************************************************/
 
+/// This header file includes all standard libraries
 #include <bits/stdc++.h>
 
+/// chrono library deals with time, by means of clocks, time points, durations
 #include <chrono>
 
+/// This file includes all standard libraries
 using namespace std;
+
 
 /*****************************************************************************************************************************
     Module Name: Swap Function
@@ -46,6 +50,8 @@ void swap(int *a, int *b)
 	///storing the address of first variable which was in temp to second variable
 	*b = temp;
 }
+
+
 /*****************************************************************************************************************************
     Module Name: Shaker Sort Function - Ascending Order
     Author: Faiza Fatma Siddiqui
@@ -59,7 +65,6 @@ void swap(int *a, int *b)
 	Postcondition: All the elements of the array gets sorted in Ascending Order
 	Method Output: All the elements of the AscendingArr[] array gets sorted in Ascending Order
 *****************************************************************************************************************************/
-
 void ShakerSortAscending(int AscendingArr[], int arraySize)
 {
 	///assigning arraysize as end, just for better understanding & code readability when using loops in the function
@@ -99,6 +104,7 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 		start++;
 	}
 }
+
 /*****************************************************************************************************************************
     Module Name: Shaker Sort Function - Descending Order
     Author: Faiza Fatma Siddiqui
@@ -112,7 +118,6 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 	Postcondition: All the elements of the array gets sorted in Descending Order
 	Method Output: All the elements of the DescendingArr[] array gets sorted in Descending Order
 *****************************************************************************************************************************/
-
 void ShakerSortDescending(int DescendingArr[], int arraySize)
 {
 	///assigning arraysize as end, just for better understanding & code readability when using loops in the function
@@ -212,7 +217,7 @@ int main()
 	///define an array of the size given by the user
 	int myArray[noOfElements];
 
-		///loop for entering random numbers in the array 
+	///loop for entering random numbers in the array 
 	for (i = 0; i < noOfElements; i++)
 
 		///Generates random numbers between 0 to 99999 with rand() function for every element of the array
@@ -225,7 +230,7 @@ int main()
 	for (i = 0; i < noOfElements; i++)
 		cout << "Element no. " << i + 1 << ": " << myArray[i] << endl;
 
-			///Save a copy of the array for Descending order, since the original array will be sorted and lost
+	///Save a copy of the array for Descending order, since the original array will be sorted and lost
 	int copyMyArray[noOfElements];
 
 	///copying all elements of original array to another array
@@ -234,6 +239,11 @@ int main()
 		///assigning value of every element to the empty 
 		copyMyArray[i] = myArray[i];
 	}
+	
+	///for a well-formatted console ouput
+	cout << "\n---------------------------------------------------------------------------------------------------\n";
+	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Ascending Order" << endl;
+	
 	///start the clock before sorting the array in Ascending Order
 	auto start1 = chrono::high_resolution_clock::now();
 
@@ -263,7 +273,7 @@ int main()
 	cout << "\n---------------------------------------------------------------------------------------------------\n";
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Descending Order" << endl;
 
-		///start the clock before sorting the array in Descending Order
+	///start the clock before sorting the array in Descending Order
 	auto start2 = chrono::high_resolution_clock::now();
 
 	///call the function for sorting array in Descending Order & pass the copy of array
@@ -278,7 +288,6 @@ int main()
 	///Converting nanoseconds to seconds
 	time_taken2 *= 1e-9;
 
-
 	///Print sorted Array in Descending Order
 	cout << "\n\tYour Sorted Array is: \n ";
 
@@ -286,8 +295,9 @@ int main()
 	for (i = 0; i < noOfElements; i++)
 		cout << " | " << copyMyArray[i];
 
-		/// to write floating-point values in fixed point notations upto 9 decimal places
+	/// to write floating-point values in fixed point notations upto 9 decimal places
 	cout << "\n\nTime taken by program is : " << fixed << time_taken2 << setprecision(9)<<" seconds" << endl;
 	
+	///return 0 if program executed successfully because main function is of type integer
     return 0;
 }
