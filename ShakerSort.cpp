@@ -69,15 +69,37 @@ void swap(int *a, int *b)
 *****************************************************************************************************************************/
 int main()
 {
-		///to store the number of elements entered by the user
+	///to store the number of elements entered by the user
 	int noOfElements;
 
 	///for traversing the array
 	int i;
 
+	///to check if the number entered by the user was not a decimal number
+	double checkforFloatNo;
+
 	///Prompt the user to enter the array size
 	cout << "\nEnter the number of Array elements to be sorted: ";
-	cin >> noOfElements;
+	cin >> checkforFloatNo;
+
+	///to check if input failed, if number entered is float(by subtracting the number with its whole value part, if it is 0 then failed), check if number is negative or zero:->ask for input
+	while ((cin.fail()) || (checkforFloatNo - floor(checkforFloatNo)) || (checkforFloatNo <= 0))
+	{
+		cout << "ERROR! You have entered wrong input! Try again! \nPlease enter a positive whole number only: " << endl;
+		cout << "\nEnter the number of Array elements to be sorted: ";
+		
+		///get rid of the error flag.
+		cin.clear();
+		
+		///ignore first 256 characters or all the characters until \n is encountered because it was an incorrect input from user
+		cin.ignore(256, '\n');
+		
+		///take input again because the previous entry was wrong
+		cin >> checkforFloatNo;
+	}
+	///convert the final correct entry you received from user to integer form, since array size must be integer
+	noOfElements = (int)checkforFloatNo;
+
 
     return 0;
 }
