@@ -46,6 +46,19 @@ void swap(int *a, int *b)
 	///storing the address of first variable which was in temp to second variable
 	*b = temp;
 }
+/*****************************************************************************************************************************
+    Module Name: Shaker Sort Function - Ascending Order
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 11.11.2021
+    Purpose: To sort an array in Ascending order using Shaker Sort Algorithm
+    Description: This function sorts an array in Ascending order using Shaker Sort Algorithm
+        @param: int AscendingArr[] - receives the randomly generated array to be sorted of integer type
+		@param: int arraySize - takes the size of the array of integer type
+        @return null
+	Precondition: integer type of array and array size should be passed as arguments
+	Postcondition: All the elements of the array gets sorted in Ascending Order
+	Method Output: All the elements of the AscendingArr[] array gets sorted in Ascending Order
+*****************************************************************************************************************************/
 
 void ShakerSortAscending(int AscendingArr[], int arraySize)
 {
