@@ -248,5 +248,20 @@ int main()
 	for (i = 0; i < noOfElements; i++)
 		cout << " | " << myArray[i];
 
+	///for a well-formatted console ouput
+	cout << "\n---------------------------------------------------------------------------------------------------\n";
+	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Descending Order" << endl;
+
+	///call the function for sorting array in Descending Order & pass the copy of array
+	ShakerSortDescending(copyMyArray, noOfElements);
+
+
+	///Print sorted Array in Descending Order
+	cout << "\n\tYour Sorted Array is: \n ";
+
+	///for displaying all the array elements to the user 
+	for (i = 0; i < noOfElements; i++)
+		cout << " | " << copyMyArray[i];
+
     return 0;
 }
