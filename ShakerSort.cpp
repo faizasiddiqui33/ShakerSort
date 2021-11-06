@@ -99,6 +99,19 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 		start++;
 	}
 }
+/*****************************************************************************************************************************
+    Module Name: Shaker Sort Function - Descending Order
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 11.11.2021
+    Purpose: To sort an array in Descending order using Shaker Sort Algorithm
+    Description: This function sorts an array in Descending order using Shaker Sort Algorithm
+        @param: int DescendingArr[] - receives the randomly generated array to be sorted of integer type
+		@param: int arraySize - takes the size of the array of integer type
+        @return null
+	Precondition: integer type of array and array size should be passed as arguments
+	Postcondition: All the elements of the array gets sorted in Descending Order
+	Method Output: All the elements of the DescendingArr[] array gets sorted in Descending Order
+*****************************************************************************************************************************/
 
 void ShakerSortDescending(int DescendingArr[], int arraySize)
 {
