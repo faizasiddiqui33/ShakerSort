@@ -47,7 +47,26 @@ void swap(int *a, int *b)
 	*b = temp;
 }
 
-
+/*****************************************************************************************************************************
+    Module Name: Main Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 11.11.2021
+    Purpose: To print message to user, to print the sorted array in a Ascending order & Descending order using Shaker Sort Algorithm
+    Description: This function prompts the user to determine the size of array. 
+		- It restricts the user from entering any invalid entries for size of array and allows to enter only positive whole numbers.
+		- It generates a random array of the size given by the user and prints it
+		- It calls the function for sorting array in Ascending order & displays the sorted array
+		- It calls the function for sorting array in Descending order & displays the sorted array
+		- It prints the time taken to perform both sortings.
+        @param: None
+        @return integer - 0 if program executed successfully, else nonzero will be returned
+	Precondition: None
+	Postcondition: Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
+	Method Output: 
+		Asks the user to input array size
+		Checks for invalid entry from the user and prompts error message to the user for entering incorrect array size
+		Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
+*****************************************************************************************************************************/
 int main()
 {
 	
