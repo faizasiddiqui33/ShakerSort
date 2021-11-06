@@ -263,8 +263,20 @@ int main()
 	cout << "\n---------------------------------------------------------------------------------------------------\n";
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Descending Order" << endl;
 
+		///start the clock before sorting the array in Descending Order
+	auto start2 = chrono::high_resolution_clock::now();
+
 	///call the function for sorting array in Descending Order & pass the copy of array
 	ShakerSortDescending(copyMyArray, noOfElements);
+
+	///stop the clock after sorting the array in Descending Order
+	auto end2 = chrono::high_resolution_clock::now();
+
+	/// Calculating total time taken by the program by subracting start time from end time
+	double time_taken2 = chrono::duration_cast<chrono::nanoseconds>(end2 - start2).count();
+
+	///Converting nanoseconds to seconds
+	time_taken2 *= 1e-9;
 
 
 	///Print sorted Array in Descending Order
@@ -274,5 +286,8 @@ int main()
 	for (i = 0; i < noOfElements; i++)
 		cout << " | " << copyMyArray[i];
 
+		/// to write floating-point values in fixed point notations upto 9 decimal places
+	cout << "\n\nTime taken by program is : " << fixed << time_taken2 << setprecision(9)<<" seconds" << endl;
+	
     return 0;
 }
