@@ -120,5 +120,16 @@ int main()
 	for (i = 0; i < noOfElements; i++)
 		cout << "Element no. " << i + 1 << ": " << myArray[i] << endl;
 
+			///Save a copy of the array for Descending order, since the original array will be sorted and lost
+	int copyMyArray[noOfElements];
+
+	///copying all elements of original array to another array
+	for (i = 0; i < noOfElements; i++)
+	{
+		///assigning value of every element to the empty 
+		copyMyArray[i] = myArray[i];
+	}
+
+
     return 0;
 }
