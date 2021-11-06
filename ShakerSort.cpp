@@ -107,6 +107,11 @@ int main()
 	///define an array of the size given by the user
 	int myArray[noOfElements];
 
+		///loop for entering random numbers in the array 
+	for (i = 0; i < noOfElements; i++)
+
+		///Generates random numbers between 0 to 99999 with rand() function for every element of the array
+		myArray[i] = rand() % 100000; 
 
     return 0;
 }
