@@ -113,5 +113,12 @@ int main()
 		///Generates random numbers between 0 to 99999 with rand() function for every element of the array
 		myArray[i] = rand() % 100000; 
 
+	///Print the array elements
+	cout << "Elements of the array are:" << endl;
+
+	///for displaying all the array elements to the user 
+	for (i = 0; i < noOfElements; i++)
+		cout << "Element no. " << i + 1 << ": " << myArray[i] << endl;
+
     return 0;
 }
