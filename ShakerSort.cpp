@@ -69,6 +69,15 @@ void swap(int *a, int *b)
 *****************************************************************************************************************************/
 int main()
 {
-	
+		///to store the number of elements entered by the user
+	int noOfElements;
+
+	///for traversing the array
+	int i;
+
+	///Prompt the user to enter the array size
+	cout << "\nEnter the number of Array elements to be sorted: ";
+	cin >> noOfElements;
+
     return 0;
 }
