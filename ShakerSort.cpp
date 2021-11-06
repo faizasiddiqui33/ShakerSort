@@ -47,6 +47,47 @@ void swap(int *a, int *b)
 	*b = temp;
 }
 
+void ShakerSortAscending(int AscendingArr[], int arraySize)
+{
+	///assigning arraysize as end, just for better understanding & code readability when using loops in the function
+	int end = arraySize;
+
+	///set the start value to the first element of the array
+	int start = 0;
+
+	/// variables for starting point of both phases
+	int phase1Start, phase2Start;
+
+	///this loop will run from start of the array till the end of array
+	while (start < end)
+	{
+		///Phase 1 of array goes from left to right and brings the greatest number to the end
+		for (phase1Start = start + 1; phase1Start < end; phase1Start++)
+		{
+			///check for greater number from first two elements, then next two and so on till end
+			if (AscendingArr[phase1Start] < AscendingArr[phase1Start - 1])
+
+				///swap if a greater number is found
+				swap(&AscendingArr[phase1Start], &AscendingArr[phase1Start - 1]);
+		}
+		/// Decrement the end as we are getting the greatest sorted number in the end
+		end--;
+
+		/// Phase 2 of array goes from right to left and brings the smallest number to the start
+		for (phase2Start = end - 1; phase2Start > start; phase2Start--)
+		{
+			///check for smaller number from first two elements, then next two and so on till end
+			if (AscendingArr[phase2Start] < AscendingArr[phase2Start - 1])
+
+				///swap if a smaller number is found
+				swap(&AscendingArr[phase2Start], &AscendingArr[phase2Start - 1]);
+		}
+		/// Increment the start as we are getting the smallest sorted number in the start
+		start++;
+	}
+}
+
+
 /*****************************************************************************************************************************
     Module Name: Main Function
     Author: Faiza Fatma Siddiqui
