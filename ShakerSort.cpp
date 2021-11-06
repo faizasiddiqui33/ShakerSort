@@ -234,12 +234,20 @@ int main()
 		///assigning value of every element to the empty 
 		copyMyArray[i] = myArray[i];
 	}
-	///for a well-formatted console ouput
-	cout << "\n---------------------------------------------------------------------------------------------------\n";
-	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Ascending Order" << endl;
-	
+	///start the clock before sorting the array in Ascending Order
+	auto start1 = chrono::high_resolution_clock::now();
+
 	///call the function for sorting array in Ascending Order
 	ShakerSortAscending(myArray, noOfElements);
+
+	///stop the clock after sorting the array in Ascending Order
+	auto end1 = chrono::high_resolution_clock::now();
+
+	/// Calculating total time taken by the program by subracting start time from end time
+	double time_taken1 = chrono::duration_cast<chrono::nanoseconds>(end1 - start1).count();
+
+	///Converting nanoseconds to seconds
+	time_taken1 *= 1e-9;
 
 	///Print sorted Array in Ascending Order
 	cout << "\n\tYour Sorted Array is: \n ";
@@ -247,6 +255,9 @@ int main()
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
 		cout << " | " << myArray[i];
+
+	/// to write floating-point values in fixed point notations upto 9 decimal places
+	cout << "\n\nTime taken by program is : " << fixed << time_taken1 << setprecision(9)<< " seconds" << endl;
 
 	///for a well-formatted console ouput
 	cout << "\n---------------------------------------------------------------------------------------------------\n";
