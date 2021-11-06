@@ -99,6 +99,13 @@ int main()
 	}
 	///convert the final correct entry you received from user to integer form, since array size must be integer
 	noOfElements = (int)checkforFloatNo;
+	cout << "---------------------------------------------------------------------------------------------------";
+	
+	///give a confirmation to the user of the number of elements needed in array
+	cout << "\nYou want to enter " << noOfElements << " elements in your array.\n"<< endl;
+
+	///define an array of the size given by the user
+	int myArray[noOfElements];
 
 
     return 0;
