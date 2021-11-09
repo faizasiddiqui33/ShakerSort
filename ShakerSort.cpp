@@ -1,6 +1,6 @@
 /*****************************************************************************************************************************
 	Module Name: Shaker Sort Algorithm
-	Author: Faiza Fatma Siddiqui
+	@author: Faiza Fatma Siddiqui
 	Date Created/Modified:11.11.2021
 	Student ID: 200473896
 	Purpose: CS 700 - Software Development Fundamentals - Assignment 4 
@@ -19,42 +19,16 @@
 /// chrono library deals with time, by means of clocks, time points, durations
 #include <chrono>
 
+///header file that contains swap function
+#include "swap.h"
+
 /// This file includes all standard libraries
 using namespace std;
 
 
 /*****************************************************************************************************************************
-    Module Name: Swap Function
-    Author: Faiza Fatma Siddiqui
-    Date Created/Modified: 01.11.2021
-    Purpose: To swap values using call by reference
-    Description: This function takes the help of a third temporary variable to interchange the values of two variables
-        @param: int *a - receives the address of a variable to be swapped
-		@param: int *b - receives the address of another variable to be swapped
-        @return null
-	Precondition: address Only integer values should be passed
-	Postcondition: Integer values of 2 numbers are interchanged
-	Method Output: The values of 2 given variables are interchanged
-*****************************************************************************************************************************/
-void swap(int *a, int *b)
-{
-	///temporary variable to help in swapping
-	int temp;
-
-	///storing address of first variable in temporary variable, so that it is not lost
-	temp = *a;
-
-	///replacing the address of first variable with second variable
-	*a = *b;
-
-	///storing the address of first variable which was in temp to second variable
-	*b = temp;
-}
-
-
-/*****************************************************************************************************************************
     Module Name: Shaker Sort Function - Ascending Order
-    Author: Faiza Fatma Siddiqui
+    @author: Faiza Fatma Siddiqui
     Date Created/Modified: 11.11.2021
     Purpose: To sort an array in Ascending order using Shaker Sort Algorithm
     Description: This function sorts an array in Ascending order using Shaker Sort Algorithm
@@ -107,7 +81,7 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 
 /*****************************************************************************************************************************
     Module Name: Shaker Sort Function - Descending Order
-    Author: Faiza Fatma Siddiqui
+    @author: Faiza Fatma Siddiqui
     Date Created/Modified: 11.11.2021
     Purpose: To sort an array in Descending order using Shaker Sort Algorithm
     Description: This function sorts an array in Descending order using Shaker Sort Algorithm
@@ -159,7 +133,7 @@ void ShakerSortDescending(int DescendingArr[], int arraySize)
 
 /*****************************************************************************************************************************
     Module Name: Main Function
-    Author: Faiza Fatma Siddiqui
+    @author: Faiza Fatma Siddiqui
     Date Created/Modified: 11.11.2021
     Purpose: To print message to user, to print the sorted array in a Ascending order & Descending order using Shaker Sort Algorithm
     Description: This function prompts the user to determine the size of array. 
@@ -209,7 +183,7 @@ int main()
 	}
 	///convert the final correct entry you received from user to integer form, since array size must be integer
 	noOfElements = (int)checkforFloatNo;
-	cout << "---------------------------------------------------------------------------------------------------";
+	cout << "--------------------------------------------------------------------------------------------------------------------------------------------";
 	
 	///give a confirmation to the user of the number of elements needed in array
 	cout << "\nYou want to enter " << noOfElements << " elements in your array.\n"<< endl;
@@ -241,7 +215,7 @@ int main()
 	}
 	
 	///for a well-formatted console ouput
-	cout << "\n---------------------------------------------------------------------------------------------------\n";
+	cout << "\n------------------------------------------------------------------------------------------------------------------------------------------\n";
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Ascending Order" << endl;
 	
 	///start the clock before sorting the array in Ascending Order
@@ -264,13 +238,17 @@ int main()
 
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
-		cout << " | " << myArray[i];
+		/// To not display the line for the first element for a well-formatted console output
+		if(i==0)
+		cout<<myArray[0]<<" ";
+		else
+		cout << "  |  " << myArray[i];
 
 	/// to write floating-point values in fixed point notations upto 9 decimal places
-	cout << "\n\nTime taken by program is : " << fixed << time_taken1 << setprecision(9)<< " seconds" << endl;
+	cout << "\n\nTime taken to sort in Ascending Order is : " << fixed << time_taken1 << setprecision(9)<< " seconds" << endl;
 
 	///for a well-formatted console ouput
-	cout << "\n---------------------------------------------------------------------------------------------------\n";
+	cout << "\n------------------------------------------------------------------------------------------------------------------------------------------\n";
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Descending Order" << endl;
 
 	///start the clock before sorting the array in Descending Order
@@ -293,10 +271,14 @@ int main()
 
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
-		cout << " | " << copyMyArray[i];
+		/// To not display the arrow for the first element for a well-formatted console output
+		if(i==0)
+		cout<<copyMyArray[0]<<"  ";
+		else
+		cout << " ->  " << copyMyArray[i];
 
 	/// to write floating-point values in fixed point notations upto 9 decimal places
-	cout << "\n\nTime taken by program is : " << fixed << time_taken2 << setprecision(9)<<" seconds" << endl;
+	cout << "\n\nTime taken to sort in Descending Order is : " << fixed << time_taken2 << setprecision(9)<<" seconds" << endl;
 	
 	///return 0 if program executed successfully because main function is of type integer
     return 0;
