@@ -44,8 +44,11 @@ using namespace std;
 *****************************************************************************************************************************/
 void ShakerSortAscending(int AscendingArr[], int arraySize)
 {
-	///assigning arraysize as end, just for better understanding & code readability when using loops in the function
-	int end = arraySize;
+	///assigning arraysize-1 as end, just for better understanding & code readability when using loops in the function
+	int end = arraySize-1;
+
+	///swap flag to check if swapping is done or not, if not done, then array is sorted, we can stop the loop and no more checking & swapping needs to be done
+	bool swap_flag = true;
 
 	///set the start value to the first element of the array
 	int start = 0;
@@ -53,30 +56,50 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 	/// variables for starting point of both phases
 	int phase1Start, phase2Start;
 
-	///this loop will run from start of the array till the end of array
-	while (start < end)
-	{
+	///we had set the flag to true, so that this loop will run until there are swaps, if no swaps that means array is sorted
+	while (swap_flag)
+	{		
+		///set the swapping to false because we are starting the loop and no swaps were done previously
+		swap_flag = false;
+
 		///Phase 1 of array goes from left to right and brings the greatest number to the end
-		for (phase1Start = start + 1; phase1Start < end; phase1Start++)
+		for (phase1Start=start; phase1Start<end; phase1Start++)
 		{
 			///@if greater number from first two elements, then swap and check for next two and so on till end
-			if (AscendingArr[phase1Start] < AscendingArr[phase1Start - 1])
-
+			if (AscendingArr[phase1Start] > AscendingArr[phase1Start + 1])
+				{
 				///swap if a greater number is found
-				swapp(&AscendingArr[phase1Start], &AscendingArr[phase1Start - 1]);
+				swapp(&AscendingArr[phase1Start], &AscendingArr[phase1Start + 1]);
+				
+				///swap was done, so set the swap flag to true
+				swap_flag=true;
+				}
 				///@endif
 		}
+		///@if swap was not done after any phase, then array has been sorted and we can move out of the loop
+		if (!swap_flag)
+			break;
+
+		///@else swap flag should be false, for phase 2 
+		else
+		swap_flag = false;
+		///@endif
+		
 		/// Decrement the end as we are getting the greatest sorted number in the end
 		end--;
 
 		/// Phase 2 of array goes from right to left and brings the smallest number to the start
-		for (phase2Start = end - 1; phase2Start > start; phase2Start--)
+		for (phase2Start=end-1; phase2Start>= start; phase2Start--)
 		{
 			///@if smaller number from first two elements, then swap and check previous two and so on till start
-			if (AscendingArr[phase2Start] < AscendingArr[phase2Start - 1])
-
+			if (AscendingArr[phase2Start] > AscendingArr[phase2Start+1])
+				{
 				///swap if a smaller number is found
-				swapp(&AscendingArr[phase2Start], &AscendingArr[phase2Start - 1]);
+				swapp(&AscendingArr[phase2Start], &AscendingArr[phase2Start+1]);
+				
+				///because swapping is done, we will set the flag to true
+				swap_flag = true;
+				}
 				///@endif
 		}
 		/// Increment the start as we are getting the smallest sorted number in the start
@@ -100,49 +123,62 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 *****************************************************************************************************************************/
 void ShakerSortDescending(int DescendingArr[], int arraySize)
 {
-	///assigning arraysize as end, just for better understanding & code readability when using loops in the function
-	int end = arraySize;
+	///assigning arraysize-1 as end, just for better understanding & code readability when using loops in the function
+	int end = arraySize-1;
+
+	///swap flag to check if swapping is done or not, if not done, then array is sorted, we can stop the loop and no more checking & swapping needs to be done
+	bool swap_flag = true;
 
 	///set the start value to the first element of the array
 	int start = 0;
 
 	/// variables for starting point of both phases
 	int phase1Start, phase2Start;
-	// bool swapped;
-	///this loop will run from start of the array till the end of array
-	while (start<end)
+
+	///we had set the flag to true, so that this loop will run until there are swaps, if no swaps that means array is sorted
+	while (swap_flag)
 	{	
-		//swapped=false;
+		///set the swapping to false because we are starting the loop and no swaps were done previously
+		swap_flag = false;
+
 		///Phase 1 of array goes from left to right and brings the smallest number to the end
-		for (phase1Start = start + 1; phase1Start < end; phase1Start++)
+		for (phase1Start=start; phase1Start<end; phase1Start++)
 		{
 			///@if greater number from first two elements, then swap and check next two and so on till end
-			if (DescendingArr[phase1Start] > DescendingArr[phase1Start - 1])
-			
+			if (DescendingArr[phase1Start] < DescendingArr[phase1Start + 1])
+				{
 				///swap if a greater number is found
-				swapp(&DescendingArr[phase1Start], &DescendingArr[phase1Start - 1]);
-				//swapped = true;
-				///@endif 
-			
-		}
-		// if (!swapped)
-        //     break;
- 
-        // // otherwise, reset the swapped flag so that it
-        // // can be used in the next stage
-        // swapped = false;
-		/// Decrement the end as we are getting the smallest sorted number in the end
-		end--;
+				swapp(&DescendingArr[phase1Start], &DescendingArr[phase1Start + 1]);
 
+				///swap was done, so set the swap flag to true
+				swap_flag=true;
+				}
+				///@endif 
+		}
+		///@if swap was not done after any phase, then array has been sorted and we can move out of the loop
+		if (!swap_flag)
+			break;
+
+		///@else swap flag should be false, for phase 2 
+		else
+		swap_flag = false;
+		///@endif
+
+		/// Decrement the end as we are getting the greatest sorted number in the end
+		end--;
+		
 		/// Phase 2 of array goes from right to left and brings the greatest number to the start
-		for (phase2Start = end - 1; phase2Start > start; phase2Start--)
+		for (phase2Start=end-1; phase2Start>= start; phase2Start--)
 		{
 			///@if smaller number from first two elements, then swap, then check next two and so on till start
-			if (DescendingArr[phase2Start] > DescendingArr[phase2Start - 1])
-
+			if (DescendingArr[phase2Start] < DescendingArr[phase2Start+1])
+				{
 				///swap if a smaller number is found
-				swapp(&DescendingArr[phase2Start], &DescendingArr[phase2Start - 1]);
-				// swapped = true;
+				swapp(&DescendingArr[phase2Start], &DescendingArr[phase2Start+1]);
+			
+				///because swapping is done, we will set the flag to true
+				swap_flag = true;
+				}
 				///@endif 
 		}
 		/// Increment the start as we are getting the greatest sorted number in the start
@@ -203,7 +239,7 @@ int main()
 	}
 	///convert the final correct entry you received from user to integer form, since array size must be integer
 	noOfElements = (int)checkforFloatNo;
-	cout << "--------------------------------------------------------------------------------------------------------------------------------------------";
+	cout << "\n==========================================================================================================================================\n";
 	
 	///give a confirmation to the user of the number of elements needed in array
 	cout << "\nYou want to enter " << noOfElements << " elements in your array.\n"<< endl;
@@ -235,7 +271,7 @@ int main()
 	}
 	
 	///for a well-formatted console ouput
-	cout << "\n------------------------------------------------------------------------------------------------------------------------------------------\n";
+	cout << "\n==========================================================================================================================================\n";
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Ascending Order" << endl;
 	
 	///start the clock before sorting the array in Ascending Order
@@ -258,20 +294,23 @@ int main()
 
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
+
 		///@if it is the first element, then do not display the line for a well-formatted console output
 		if(i==0)
 		cout<<myArray[0]<<" ";
+
 		///@else if it is any element after first element, then display the line for a well-formatted console output
 		else
 		cout << "  |  " << myArray[i];
 		///@endif 
 
 	/// to write floating-point values in fixed point notations upto 9 decimal places
-	cout << "\n\nREPORT:\nTime taken to sort array of "<<noOfElements<<" elements in Ascending Order is : " << fixed << time_taken_ascending_sort << setprecision(9)<<" seconds" << endl;
+	cout << "\n\nREPORT:\nTime taken to sort array of "<<noOfElements<<" elements using Shaker Sort Algorithm in Ascending Order is : " << fixed << time_taken_ascending_sort << setprecision(9)<<" seconds" << endl;
 
 
 	///for a well-formatted console ouput
-	cout << "\n------------------------------------------------------------------------------------------------------------------------------------------\n";
+	cout << "\n==========================================================================================================================================\n";
+
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Descending Order" << endl;
 
 	///start the clock before sorting the array in Descending Order
@@ -294,16 +333,18 @@ int main()
 
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
+
 		///@if it is the first element, then do not display the line for a well-formatted console output
 		if(i==0)
 		cout<<copyMyArray[0]<<"  ";
+	
 		///@else if it is any element after first element, then display the line for a well-formatted console output
 		else
 		cout << " ->  " << copyMyArray[i];
 		///@endif 
 
 	/// to write floating-point values in fixed point notations upto 9 decimal places
-	cout << "\n\nREPORT:\nTime taken to sort array of "<<noOfElements<<" elements in Descending Order is : " << fixed << time_taken_descending_sort << setprecision(9)<<" seconds" << endl;
+	cout << "\n\nREPORT:\nTime taken to sort array of "<<noOfElements<<" elements using Shaker Sort Algorithm in Descending Order is : " << fixed << time_taken_descending_sort << setprecision(9)<<" seconds" << endl;
 	
 	///return 0 if program executed successfully because main function is of type integer
     return 0;
