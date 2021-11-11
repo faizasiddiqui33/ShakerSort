@@ -1,16 +1,18 @@
 /*****************************************************************************************************************************
-	Module Name: Shaker Sort Algorithm
-	@author: Faiza Fatma Siddiqui
-	Date Created/Modified:11.11.2021
-	Student ID: 200473896
-	Purpose: CS 700 - Software Development Fundamentals - Assignment 4 
-	Description: 
-		- This program prompts the user to determine the size of array. 
+	@file ShakerSort.cpp
+    @brief Module Name is Shaker Sort Algorithm
+    @author: Faiza Fatma Siddiqui, Student ID: 200473896
+    @date 11-11-2021 (Created & Modified)
+    @details This program prompts the user to determine the size of array. 
 		- It restricts the user from entering any invalid entries for size of array and allows to enter only positive whole numbers.
 		- It generates a random array of the size given by the user.
 		- It sorts the array in Ascending order using Shaker Sort Algorithm.
 		- It sorts the array in Descending order using Shaker Sort Algorithm.
 		- It prints the time taken to perform both sortings.
+    Purpose: CS 700 - Software Development Fundamentals - Assignment 4 
+	Method Output: An array is sorted in ascending and descneding order & printed. The time taken in both sortings is calculated & printed.
+    @bug No known bugs.
+	@warning Improper use can crash the program while taking input from the user
 *****************************************************************************************************************************/
 
 /// This header file includes all standard libraries
@@ -25,19 +27,20 @@
 /// This file includes all standard libraries
 using namespace std;
 
-
 /*****************************************************************************************************************************
-    Module Name: Shaker Sort Function - Ascending Order
-    @author: Faiza Fatma Siddiqui
-    Date Created/Modified: 11.11.2021
-    Purpose: To sort an array in Ascending order using Shaker Sort Algorithm
-    Description: This function sorts an array in Ascending order using Shaker Sort Algorithm
-        @param: int AscendingArr[] - receives the randomly generated array to be sorted of integer type
-		@param: int arraySize - takes the size of the array of integer type
+    @brief Module Name is Shaker Sort Function - Ascending Order
+    @author Faiza Fatma Siddiqui
+    @date 11-11-2021 (Created & Modified)
+    @details Purpose is to sort an array in Ascending order using Shaker Sort Algorithm. This function takes 2 parameters: integer array & integer array size
+        @param int AscendingArr[] - receives the randomly generated array to be sorted of integer type
+		@param int arraySize - takes the size of the array of integer type
         @return null
-	Precondition: integer type of array and array size should be passed as arguments
-	Postcondition: All the elements of the array gets sorted in Ascending Order
+	@pre Precondition: integer type of array and array size should be passed as arguments
+	@post Postcondition: All the elements of the array gets sorted in Ascending Order
 	Method Output: All the elements of the AscendingArr[] array gets sorted in Ascending Order
+	@bug No known bugs.
+	@warning Improper use can crash the program
+
 *****************************************************************************************************************************/
 void ShakerSortAscending(int AscendingArr[], int arraySize)
 {
@@ -56,11 +59,12 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 		///Phase 1 of array goes from left to right and brings the greatest number to the end
 		for (phase1Start = start + 1; phase1Start < end; phase1Start++)
 		{
-			///check for greater number from first two elements, then next two and so on till end
+			///@if greater number from first two elements, then swap and check for next two and so on till end
 			if (AscendingArr[phase1Start] < AscendingArr[phase1Start - 1])
 
 				///swap if a greater number is found
-				swap(&AscendingArr[phase1Start], &AscendingArr[phase1Start - 1]);
+				swapp(&AscendingArr[phase1Start], &AscendingArr[phase1Start - 1]);
+				///@endif
 		}
 		/// Decrement the end as we are getting the greatest sorted number in the end
 		end--;
@@ -68,11 +72,12 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 		/// Phase 2 of array goes from right to left and brings the smallest number to the start
 		for (phase2Start = end - 1; phase2Start > start; phase2Start--)
 		{
-			///check for smaller number from first two elements, then next two and so on till end
+			///@if smaller number from first two elements, then swap and check previous two and so on till start
 			if (AscendingArr[phase2Start] < AscendingArr[phase2Start - 1])
 
 				///swap if a smaller number is found
-				swap(&AscendingArr[phase2Start], &AscendingArr[phase2Start - 1]);
+				swapp(&AscendingArr[phase2Start], &AscendingArr[phase2Start - 1]);
+				///@endif
 		}
 		/// Increment the start as we are getting the smallest sorted number in the start
 		start++;
@@ -80,17 +85,18 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 }
 
 /*****************************************************************************************************************************
-    Module Name: Shaker Sort Function - Descending Order
+    @brief Module Name is Shaker Sort Function - Descending Order
     @author: Faiza Fatma Siddiqui
-    Date Created/Modified: 11.11.2021
-    Purpose: To sort an array in Descending order using Shaker Sort Algorithm
+    @date 11-11-2021 (Created & Modified)
+    @details Purpose is to sort an array in Descending order using Shaker Sort Algorithm. This function takes 2 parameters: integer array & integer array size
     Description: This function sorts an array in Descending order using Shaker Sort Algorithm
         @param: int DescendingArr[] - receives the randomly generated array to be sorted of integer type
 		@param: int arraySize - takes the size of the array of integer type
         @return null
-	Precondition: integer type of array and array size should be passed as arguments
-	Postcondition: All the elements of the array gets sorted in Descending Order
+	@pre Precondition: integer type of array and array size should be passed as arguments
+	@post Postcondition: All the elements of the array gets sorted in Descending Order
 	Method Output: All the elements of the DescendingArr[] array gets sorted in Descending Order
+	@bug No known bugs.
 *****************************************************************************************************************************/
 void ShakerSortDescending(int DescendingArr[], int arraySize)
 {
@@ -102,40 +108,54 @@ void ShakerSortDescending(int DescendingArr[], int arraySize)
 
 	/// variables for starting point of both phases
 	int phase1Start, phase2Start;
-
+	// bool swapped;
 	///this loop will run from start of the array till the end of array
-	while (start < end)
-	{
+	while (start<end)
+	{	
+		//swapped=false;
 		///Phase 1 of array goes from left to right and brings the smallest number to the end
 		for (phase1Start = start + 1; phase1Start < end; phase1Start++)
 		{
-			///check for greater number from first two elements, then next two and so on till end
+			///@if greater number from first two elements, then swap and check next two and so on till end
 			if (DescendingArr[phase1Start] > DescendingArr[phase1Start - 1])
+			
 				///swap if a greater number is found
-				swap(&DescendingArr[phase1Start], &DescendingArr[phase1Start - 1]);
+				swapp(&DescendingArr[phase1Start], &DescendingArr[phase1Start - 1]);
+				//swapped = true;
+				///@endif 
+			
 		}
+		// if (!swapped)
+        //     break;
+ 
+        // // otherwise, reset the swapped flag so that it
+        // // can be used in the next stage
+        // swapped = false;
 		/// Decrement the end as we are getting the smallest sorted number in the end
 		end--;
 
 		/// Phase 2 of array goes from right to left and brings the greatest number to the start
 		for (phase2Start = end - 1; phase2Start > start; phase2Start--)
 		{
-			///check for smaller number from first two elements, then next two and so on till end
+			///@if smaller number from first two elements, then swap, then check next two and so on till start
 			if (DescendingArr[phase2Start] > DescendingArr[phase2Start - 1])
 
 				///swap if a smaller number is found
-				swap(&DescendingArr[phase2Start], &DescendingArr[phase2Start - 1]);
+				swapp(&DescendingArr[phase2Start], &DescendingArr[phase2Start - 1]);
+				// swapped = true;
+				///@endif 
 		}
 		/// Increment the start as we are getting the greatest sorted number in the start
 		start++;
 	}
 }
 
+
 /*****************************************************************************************************************************
-    Module Name: Main Function
+    @brief Module Name is Main Function
     @author: Faiza Fatma Siddiqui
-    Date Created/Modified: 11.11.2021
-    Purpose: To print message to user, to print the sorted array in a Ascending order & Descending order using Shaker Sort Algorithm
+    @date 11-11-2021 (Created/Modified)
+    @details Purpose is to print message to user, to print the sorted array in a Ascending order & Descending order using Shaker Sort Algorithm
     Description: This function prompts the user to determine the size of array. 
 		- It restricts the user from entering any invalid entries for size of array and allows to enter only positive whole numbers.
 		- It generates a random array of the size given by the user and prints it
@@ -144,8 +164,8 @@ void ShakerSortDescending(int DescendingArr[], int arraySize)
 		- It prints the time taken to perform both sortings.
         @param: None
         @return integer - 0 if program executed successfully, else nonzero will be returned
-	Precondition: None
-	Postcondition: Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
+	@pre Precondition: None
+	@post Postcondition: Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
 	Method Output: 
 		Asks the user to input array size
 		Checks for invalid entry from the user and prompts error message to the user for entering incorrect array size
@@ -167,7 +187,7 @@ int main()
 	cin >> checkforFloatNo;
 
 	///to check if input failed, if number entered is float(by subtracting the number with its whole value part, if it is 0 then failed), check if number is negative or zero:->ask for input
-	while ((cin.fail()) || (checkforFloatNo - floor(checkforFloatNo)) || (checkforFloatNo <= 0))
+	while ((cin.fail()) || (checkforFloatNo - floor(checkforFloatNo)) || (checkforFloatNo <= 1))
 	{
 		cout << "ERROR! You have entered wrong input! Try again! \nPlease enter a positive whole number only: " << endl;
 		cout << "\nEnter the number of Array elements to be sorted: ";
@@ -219,66 +239,71 @@ int main()
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Ascending Order" << endl;
 	
 	///start the clock before sorting the array in Ascending Order
-	auto start1 = chrono::high_resolution_clock::now();
+	auto start_ascending_sort = chrono::high_resolution_clock::now();
 
 	///call the function for sorting array in Ascending Order
 	ShakerSortAscending(myArray, noOfElements);
 
 	///stop the clock after sorting the array in Ascending Order
-	auto end1 = chrono::high_resolution_clock::now();
+	auto end_ascending_sort = chrono::high_resolution_clock::now();
 
 	/// Calculating total time taken by the program by subracting start time from end time
-	double time_taken1 = chrono::duration_cast<chrono::nanoseconds>(end1 - start1).count();
+	double time_taken_ascending_sort = chrono::duration_cast<chrono::nanoseconds>(end_ascending_sort - start_ascending_sort).count();
 
 	///Converting nanoseconds to seconds
-	time_taken1 *= 1e-9;
+	time_taken_ascending_sort *= 1e-9;
 
 	///Print sorted Array in Ascending Order
 	cout << "\n\tYour Sorted Array is: \n ";
 
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
-		/// To not display the line for the first element for a well-formatted console output
+		///@if it is the first element, then do not display the line for a well-formatted console output
 		if(i==0)
 		cout<<myArray[0]<<" ";
+		///@else if it is any element after first element, then display the line for a well-formatted console output
 		else
 		cout << "  |  " << myArray[i];
+		///@endif 
 
 	/// to write floating-point values in fixed point notations upto 9 decimal places
-	cout << "\n\nTime taken to sort in Ascending Order is : " << fixed << time_taken1 << setprecision(9)<< " seconds" << endl;
+	cout << "\n\nREPORT:\nTime taken to sort array of "<<noOfElements<<" elements in Ascending Order is : " << fixed << time_taken_ascending_sort << setprecision(9)<<" seconds" << endl;
+
 
 	///for a well-formatted console ouput
 	cout << "\n------------------------------------------------------------------------------------------------------------------------------------------\n";
 	cout << "\tNow let's sort your Array using Shaker Sort Algorithm in Descending Order" << endl;
 
 	///start the clock before sorting the array in Descending Order
-	auto start2 = chrono::high_resolution_clock::now();
+	auto start_descending_sort = chrono::high_resolution_clock::now();
 
 	///call the function for sorting array in Descending Order & pass the copy of array
 	ShakerSortDescending(copyMyArray, noOfElements);
 
 	///stop the clock after sorting the array in Descending Order
-	auto end2 = chrono::high_resolution_clock::now();
+	auto end_descending_sort = chrono::high_resolution_clock::now();
 
 	/// Calculating total time taken by the program by subracting start time from end time
-	double time_taken2 = chrono::duration_cast<chrono::nanoseconds>(end2 - start2).count();
+	double time_taken_descending_sort = chrono::duration_cast<chrono::nanoseconds>(end_descending_sort - start_descending_sort).count();
 
 	///Converting nanoseconds to seconds
-	time_taken2 *= 1e-9;
+	time_taken_descending_sort *= 1e-9;
 
 	///Print sorted Array in Descending Order
 	cout << "\n\tYour Sorted Array is: \n ";
 
 	///for displaying all the array elements to the user 
 	for (i = 0; i < noOfElements; i++)
-		/// To not display the arrow for the first element for a well-formatted console output
+		///@if it is the first element, then do not display the line for a well-formatted console output
 		if(i==0)
 		cout<<copyMyArray[0]<<"  ";
+		///@else if it is any element after first element, then display the line for a well-formatted console output
 		else
 		cout << " ->  " << copyMyArray[i];
+		///@endif 
 
 	/// to write floating-point values in fixed point notations upto 9 decimal places
-	cout << "\n\nTime taken to sort in Descending Order is : " << fixed << time_taken2 << setprecision(9)<<" seconds" << endl;
+	cout << "\n\nREPORT:\nTime taken to sort array of "<<noOfElements<<" elements in Descending Order is : " << fixed << time_taken_descending_sort << setprecision(9)<<" seconds" << endl;
 	
 	///return 0 if program executed successfully because main function is of type integer
     return 0;
