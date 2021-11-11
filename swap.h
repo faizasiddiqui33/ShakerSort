@@ -19,9 +19,9 @@
     @date 11-11-2021 (Modified/Created)
     @details This function takes the help of a third temporary variable to interchange the values of two variables
     Description: The purpose of this function is to swap values using call by reference
-        @param: int | *a
+        @param: int *a
         This parameter takes the address of a variable to be swapped which is of integer type
-		@param: int | *b
+		@param: int *b
         This parameter takes the address of another variable to be swapped which is of integer type
         @return null | 
 	@pre Precondition: address Only integer values should be passed
@@ -30,18 +30,18 @@
     @bug No known bugs.
 *****************************************************************************************************************************/
 
-void swapp(int *a, int *b)
+void swapp(int *first_variable, int *second_variable)
 {
 	///temporary variable to help in swapping
-	int temp;
+	int temporary_variable;
 
 	///storing address of first variable in temporary variable, so that it is not lost
-	temp = *a;
+	temporary_variable = *first_variable;
 
 	///replacing the address of first variable with second variable
-	*a = *b;
+	*first_variable = *second_variable;
 
 	///storing the address of first variable which was in temp to second variable
-	*b = temp;
+	*second_variable = temporary_variable;
 }
 #endif
