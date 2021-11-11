@@ -1,9 +1,10 @@
-There are 3 files:
-1. Output Screenshots: VS Code, Eclipse, Command Prompt
-2. The Source Code(ShakerSort.cpp file)
-3. Github repository & version history screenshots
+There are 4 files:
+1. Output Screenshots: VS Code and Command Prompt
+2. Github repository & version history screenshots
+3. The Source Code(ShakerSort.cpp file)
+4. The Header File(swap.h)
 
-This program has been tested and can be run in VS Code, Eclipse & Command Prompt on Windows 10 with Mingw C++ Compiler
+This program has been tested and can be run in VS Code & Command Prompt on Windows 10 with Mingw C++ Compiler
 
 Github link for this program:
 https://github.com/faizasiddiqui33/ShakerSort-Assignment4.git
