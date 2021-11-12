@@ -18,14 +18,14 @@
     @author: Faiza Fatma Siddiqui
     @date 11-11-2021 (Modified/Created)
     @details This function takes the help of a third temporary variable to interchange the values of two variables
-    Description: The purpose of this function is to swap values using call by reference
+    Description: The Purpose of this function is to swap values using call by reference
         @param: int *a
         This parameter takes the address of a variable to be swapped which is of integer type
 		@param: int *b
         This parameter takes the address of another variable to be swapped which is of integer type
         @return null | 
-	@pre Precondition: address Only integer values should be passed
-	@post Postcondition: Integer values of 2 variables are interchanged
+	@pre Precondition: address of Only integer values should be passed
+	@post Postcondition: values of 2 variables are interchanged
 	Method Output: The values of 2 given variables are interchanged
     @bug No known bugs.
 *****************************************************************************************************************************/
