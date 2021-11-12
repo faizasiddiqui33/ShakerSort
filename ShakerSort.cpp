@@ -250,8 +250,8 @@ int main()
 	///loop for entering random numbers in the array
 	for (i = 0; i < noOfElements; i++)
 
-		///Generates random numbers between 0 to 99999 with rand() function for every element of the array
-		myArray[i] = rand() % 100000;
+		///Generates random numbers between 0 to 999999 with rand() function for every element of the array
+		myArray[i] = rand() % 1000000;
 
 	///Print the array elements
 	cout << "Elements of the array are:" << endl;
