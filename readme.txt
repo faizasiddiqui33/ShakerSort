@@ -1,4 +1,4 @@
-There are 4 files:
+There are 5 files:
 1. Output Screenshots: VS Code and Command Prompt
 2. Github repository & version history screenshots
 3. The Source Code(ShakerSort.cpp file)
@@ -39,4 +39,4 @@ by subtracting the start time from the end time. This time is then reported.
 
 Before calling the descending order sort function, a timer is started and stopped. Then again time taken is calculated and reported.
 
-Swapping of numbers for sorting is done with the help of a separate function -> swap() which calls the function by reference
+Swapping of numbers for sorting is done with the help of a separate function -> swapp() which calls the function by reference

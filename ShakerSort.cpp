@@ -1,19 +1,19 @@
 /*****************************************************************************************************************************
-	@file ShakerSort.cpp
-    @brief		Module Name is Shaker Sort Algorithm
-    @author		Faiza Fatma Siddiqui, Student ID: 200473896
-    @date		11-11-2021 (Created & Modified)
-    @details 	This program prompts the user to determine the size of array. 
-		- It restricts the user from entering any invalid entries for
-		size of array and allows to enter only positive whole numbers.
-		- It generates a random array of the size given by the user.
-		- It sorts the array in Ascending order using Shaker Sort Algorithm.
-		- It sorts the array in Descending order using Shaker Sort Algorithm.
-		- It prints the time taken to perform both sortings.
-    Purpose:	CS 700 - Software Development Fundamentals - Assignment 4 
-	Method Output: An array is sorted in ascending and descending order & printed. The time taken in both sortings is calculated & printed.
-    @bug		No known bugs.
-	@warning	Improper use can crash the program while taking input from the user
+	* @file ShakerSort.cpp
+    * @brief	Module Name is Shaker Sort Algorithm
+    * @author	Faiza Fatma Siddiqui, Student ID: 200473896
+    * @date		11-11-2021 (Created & Modified)
+    * @details 	This program prompts the user to determine the size of array. 
+	* 	- It restricts the user from entering any invalid entries for
+	* 	size of array and allows to enter only positive whole numbers.
+	* 	- It generates a random array of the size given by the user.
+	* 	- It sorts the array in Ascending order using Shaker Sort Algorithm.
+	* 	- It sorts the array in Descending order using Shaker Sort Algorithm.
+	* 	- It prints the time taken to perform both sortings.
+    * Purpose	CS 700 - Software Development Fundamentals - Assignment 4 
+	* Method Output: An array is sorted in ascending and descending order & printed. The time taken in both sortings is calculated & printed.
+    * @bug		No known bugs.
+	* @warning	Improper use can crash the program while taking input from the user
 *****************************************************************************************************************************/
 
 /** This header file includes all standard libraries */
