@@ -3,8 +3,9 @@ There are 4 files:
 2. Github repository & version history screenshots
 3. The Source Code(ShakerSort.cpp file)
 4. The Header File(swap.h)
+5. Doxygen generated html file - check index.html in that folder
 
-This program has been tested and can be run in VS Code & Command Prompt on Windows 10 with Mingw C++ Compiler
+This program has been tested and can be run in Visual Studio Code & Command Prompt on Windows 10 with Mingw C++ Compiler
 
 Github link for this program:
 https://github.com/faizasiddiqui33/ShakerSort-Assignment4.git
