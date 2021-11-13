@@ -1,21 +1,22 @@
 /*****************************************************************************************************************************
 	@file ShakerSort.cpp
-    @brief Module Name is Shaker Sort Algorithm
-    @author: Faiza Fatma Siddiqui, Student ID: 200473896
-    @date 11-11-2021 (Created & Modified)
-    @details This program prompts the user to determine the size of array. 
-		- It restricts the user from entering any invalid entries for size of array and allows to enter only positive whole numbers.
+    @brief		Module Name is Shaker Sort Algorithm
+    @author		Faiza Fatma Siddiqui, Student ID: 200473896
+    @date		11-11-2021 (Created & Modified)
+    @details 	This program prompts the user to determine the size of array. 
+		- It restricts the user from entering any invalid entries for
+		size of array and allows to enter only positive whole numbers.
 		- It generates a random array of the size given by the user.
 		- It sorts the array in Ascending order using Shaker Sort Algorithm.
 		- It sorts the array in Descending order using Shaker Sort Algorithm.
 		- It prints the time taken to perform both sortings.
-    Purpose: CS 700 - Software Development Fundamentals - Assignment 4 
+    Purpose:	CS 700 - Software Development Fundamentals - Assignment 4 
 	Method Output: An array is sorted in ascending and descending order & printed. The time taken in both sortings is calculated & printed.
-    @bug No known bugs.
-	@warning Improper use can crash the program while taking input from the user
+    @bug		No known bugs.
+	@warning	Improper use can crash the program while taking input from the user
 *****************************************************************************************************************************/
 
-/// This header file includes all standard libraries
+/** This header file includes all standard libraries */
 #include <bits/stdc++.h>
 
 /// chrono library deals with time, by means of clocks, time points, durations
@@ -28,24 +29,23 @@
 using namespace std;
 
 /*****************************************************************************************************************************
-    @brief Module Name is Shaker Sort Function - Ascending Order
-    @author Faiza Fatma Siddiqui
-    @date 11-11-2021 (Created & Modified)
-    @details Purpose is to sort an array in Ascending order using Shaker Sort Algorithm. This function takes 2 parameters: integer array & integer array size
-        @param int AscendingArr[] - receives the randomly generated array to be sorted of integer type
-		@param int arraySize - takes the size of the array of integer type
-        @return null
-	@pre Precondition: integer type of array and array size should be passed as arguments
-	@post Postcondition: All the elements of the array gets sorted in Ascending Order
-	Method Output: All the elements of the AscendingArr[] array gets sorted in Ascending Order
-	@bug No known bugs.
-	@warning Improper use can crash the program
-
+    * @brief	Module Name is Shaker Sort Function - Ascending Order
+    * @author Faiza Fatma Siddiqui
+    * @date	11-11-2021 (Created & Modified)
+    * @details Purpose is to sort an array in Ascending order using Shaker Sort Algorithm. This function takes 2 parameters: integer array & integer array size
+    * @param[in,out] AscendingArr[] - array that receives the randomly generated array to be sorted of integer type
+	* @param[in] arraySize - takes the size of the array of integer type
+    * @return	null
+	* @pre	Precondition: integer type of array and array size should be passed as arguments
+	* @post	Postcondition: All the elements of the array gets sorted in Ascending Order
+	* Method Output: All the elements of the AscendingArr[] array gets sorted in Ascending Order
+	* @bug	No known bugs.
+	* @warning Improper use can crash the program
 *****************************************************************************************************************************/
 void ShakerSortAscending(int AscendingArr[], int arraySize)
 {
-	///assigning arraysize-1 as end, just for better understanding & code readability when using loops in the function
-	int end = arraySize - 1;
+	/// assigning arraysize-1 as end, just for better understanding & code readability when using loops in the function
+	int end = arraySize - 1; 
 
 	///swap flag to check if swapping is done or not, if not done, then array is sorted, we can stop the loop and no more checking & swapping needs to be done
 	bool swap_flag = true;
@@ -68,7 +68,7 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 			///@if greater number from first two elements, then swap and check for next two and so on till end
 			if (AscendingArr[phase1Start] > AscendingArr[phase1Start + 1])
 			{
-				///swap if a greater number is found
+				///swap if a greater number is found, not using the inbuilt-function swap
 				swapp(&AscendingArr[phase1Start], &AscendingArr[phase1Start + 1]);
 
 				///swap was done, so set the swap flag to true
@@ -108,22 +108,22 @@ void ShakerSortAscending(int AscendingArr[], int arraySize)
 }
 
 /*****************************************************************************************************************************
-    @brief Module Name is Shaker Sort Function - Descending Order
-    @author: Faiza Fatma Siddiqui
-    @date 11-11-2021 (Created & Modified)
-    @details Purpose is to sort an array in Descending order using Shaker Sort Algorithm. This function takes 2 parameters: integer array & integer array size
-    Description: This function sorts an array in Descending order using Shaker Sort Algorithm
-        @param: int DescendingArr[] - receives the randomly generated array to be sorted of integer type
-		@param: int arraySize - takes the size of the array of integer type
-        @return null
-	@pre Precondition: integer type of array and array size should be passed as arguments
-	@post Postcondition: All the elements of the array gets sorted in Descending Order
-	Method Output: All the elements of the DescendingArr[] array gets sorted in Descending Order
-	@bug No known bugs.
+	* @brief	Module Name is Shaker Sort Function - Descending Order
+    * @author	Faiza Fatma Siddiqui
+    * @date	11-11-2021 (Created & Modified)
+    * @details Purpose is to sort an array in Descending order using Shaker Sort Algorithm. This function takes 2 parameters: integer array & integer array size
+    * Description: This function sorts an array in Descending order using Shaker Sort Algorithm
+    * @param[in,out] DescendingArr[] - an integer array that receives the randomly generated array to be sorted
+	* @param[in] arraySize - takes the size of the array of integer type
+    * @return	null
+	* @pre	Precondition: integer type of array and array size should be passed as arguments
+	* @post	Postcondition: All the elements of the array gets sorted in Descending Order
+	* Method Output: All the elements of the DescendingArr[] array gets sorted in Descending Order
+	* @bug	No known bugs
 *****************************************************************************************************************************/
 void ShakerSortDescending(int DescendingArr[], int arraySize)
 {
-	///assigning arraysize-1 as end, just for better understanding & code readability when using loops in the function
+	//// assigning arraysize-1 as end, just for better understanding & code readability when using loops in the function */
 	int end = arraySize - 1;
 
 	///swap flag to check if swapping is done or not, if not done, then array is sorted, we can stop the loop and no more checking & swapping needs to be done
@@ -185,34 +185,33 @@ void ShakerSortDescending(int DescendingArr[], int arraySize)
 		start++;
 	}
 }
-
 /*****************************************************************************************************************************
-    @brief Module Name is Main Function
-    @author: Faiza Fatma Siddiqui
-    @date 11-11-2021 (Created/Modified)
-    @details Purpose is to print message to user, to print the sorted array in a Ascending order & Descending order using Shaker Sort Algorithm
-    Description: This function prompts the user to determine the size of array. 
-		- It restricts the user from entering any invalid entries for size of array and allows to enter only positive whole numbers.
-		- It generates a random array of the size given by the user and prints it
-		- It calls the function for sorting array in Ascending order & displays the sorted array
-		- It calls the function for sorting array in Descending order & displays the sorted array
-		- It prints the time taken to perform both sortings.
-        @param: None
-        @return integer - 0 if program executed successfully, else nonzero will be returned
-	@pre Precondition: None
-	@post Postcondition: Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
-	Method Output: 
-		Asks the user to input array size
-		Checks for invalid entry from the user and prompts error message to the user for entering incorrect array size
-		Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
+ 	* @brief	Module Name is Main Function
+    * @author	Faiza Fatma Siddiqui
+    * @date	11-11-2021 (Created/Modified)
+    * @details Purpose is to print message to user, to print the sorted array in a Ascending order & Descending order using Shaker Sort Algorithm
+    * Description: This function prompts the user to determine the size of array. 
+	*	- It restricts the user from entering any invalid entries for size of array and allows to enter only positive whole numbers.
+	*	- It generates a random array of the size given by the user and prints it
+	*	- It calls the function for sorting array in Ascending order & displays the sorted array
+	*	- It calls the function for sorting array in Descending order & displays the sorted array
+	*	- It prints the time taken to perform both sortings.
+    * @param	None
+    * @return	integer - 0 if program executed successfully, else nonzero will be returned
+	* @pre	Precondition: None
+	* @post	Postcondition: Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
+	* Method Output: 
+	* Asks the user to input array size
+	* Checks for invalid entry from the user and prompts error message to the user for entering incorrect array size
+	* Prints the array in ascending and descending order using Shaker Sort & also the time taken in both sortings
 *****************************************************************************************************************************/
 int main()
 {
-	///to store the number of elements entered by the user
+	/** to store the number of elements entered by the user */
 	int noOfElements;
 
 	///for traversing the array
-	int i;
+	int i; 
 
 	///to check if the number entered by the user was not a decimal number
 	double checkforFloatNo;
